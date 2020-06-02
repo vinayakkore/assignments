@@ -1,26 +1,26 @@
 <script>
 const list = [
   { color: 'white', size: 'XXL', length: 21 },
-  { color: 'red', size: 'XL', length: 14 },
+  { color: 'red', size: 'XL', length: 69 },
   { color: 'blue', size: 'M', length: 30 },
-  { color: 'black', size: 'S', length: 69 }
+  { color: 'black', size: 'S', length: 25 }
 ]
 
-function sortArray(list, property){
-	let sorted = list.sort((a, b) => (a[property] > b[property]) ? 1 : -1);
+function sortArray(list, property, order){
+	let sorted = list.sort((a, b) => (order === 'ascending' ? a[property] > b[property] : a[property] < b[property] ) ? 1 : -1);
  	return sorted;
 }
 
 
-let sortedArrayBySize = sortArray(list, 'size');
+let sortedArrayBySize = sortArray(list, 'size', 'ascending');
 document.write('<br><br>Sorted by size');
 display(sortedArrayBySize);
 
-let sortedArrayByColor = sortArray(list, 'color');
+let sortedArrayByColor = sortArray(list, 'color', 'ascending');
 document.write('<br><br>Sorted by Color');
 display(sortedArrayByColor);
 
-let sortedArrayByLength = sortArray(list, 'length');
+let sortedArrayByLength = sortArray(list, 'length', 'descending');
 document.write('<br><br>Sorted by length');
 display(sortedArrayByLength);
 
